@@ -14,7 +14,12 @@ const Container = styled.div`
       top : 63px;
       right : 25px;
       background: rgba(99, 98, 98, 0.5);
-      padding : 10px;
+    padding : 15px 13px;
+      text-overflow : ellipsis;
+  width : 130px;
+  overflow : hidden;
+  white-space: nowrap;
+  //height : 40px;
       border-radius : 7px;
       color : #fff;
       font-family : Chalkboard SE;
@@ -26,7 +31,7 @@ const Card = (props) => {
     <Container>
        <div className='image__container'>
            <img src={CardImage} alt="" width="100%" height="100%" style={{borderRadius : '5px'}}/>
-           <div className='text'>Things you need to know <br />to eat well</div>
+           <div className='text'>Things you need to know to eat well ehjbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</div>
        </div>
     </Container>
   )
