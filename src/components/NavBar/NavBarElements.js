@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 export const Container = styled.div`
   height: 120px;
   width: 100%;
@@ -14,6 +15,10 @@ export const HeaderWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+`
 
 export const ButtonContainer = styled.div`
   width: 370px;
@@ -31,3 +36,4 @@ export const ButtonContainer = styled.div`
 export const LogoWrapper = styled.div`
 
 `;
+

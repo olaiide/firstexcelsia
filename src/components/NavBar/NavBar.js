@@ -6,6 +6,7 @@ import {
   Container,
   HeaderWrapper,
   LogoWrapper,
+  StyledLink,
 } from "./NavBarElements";
 const NavBar = () => {
   return (
@@ -15,15 +16,18 @@ const NavBar = () => {
           <img src={Logo} alt='Rodufy logo' />
         </LogoWrapper>
         <ButtonContainer>
-          <Button children={"Register"} width={"small"} height={"45px"} />
-
-          <Button
-            children={"Log in"}
-            width={"small"}
-            login={true}
-            border={true}
-            height={"45px"}
-          />
+          <StyledLink to={"/register"}>
+            <Button children={"Register"} width={"small"} height={"45px"} />
+          </StyledLink>
+          <StyledLink to={"/login"}>
+            <Button
+              children={"Log in"}
+              width={"small"}
+              login={true}
+              border={true}
+              height={"45px"}
+            />
+          </StyledLink>
         </ButtonContainer>
       </HeaderWrapper>
     </Container>
