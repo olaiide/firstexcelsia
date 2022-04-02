@@ -52,6 +52,14 @@ export const LeftContent = styled.div`
     top : 310px;
     right : 20px;
   }
+  .line3{
+      width : 200px;
+      height : 210px;
+      position : absolute;
+      top : 400px;
+      right : 0;
+
+  }
 `;
 
 export const RightContent = styled.div`
@@ -80,22 +88,26 @@ export const RightContent = styled.div`
     width: 300px;
     margin: 0 auto;
   }
-
+.input__ {
+    width : 233px;
+}
   .input__ input {
-    width: 100%;
+  width: 100%;
     outline: none;
     border-radius: 6px;
     border: none;
-    height: 60px;
+   // height: 60px;
     background-color: #e5e5e5;
     margin-top: 15px;
+    padding : 23px 33px;
+    //padding-left : 10px;
     &::placeholder {
       font-family: Chalkboard SE;
-      font-size: 18px;
+   font-size: 15px;
       font-weight: 300;
       line-height: ;
       letter-spacing: 0em;
-      padding-left: 3px;
+     // padding-left: 3px;
     }
   }
   .button__container {

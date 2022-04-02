@@ -20,6 +20,7 @@ const Register = () => {
             <img src={Logo} alt='logo' />
           <img src={Line1} alt="" className="line1"/>
           <img src={Line2} alt="" className="line2" />
+          <img src={Line3} alt="" className="line3"/>
          </div>
        
         </LeftContent>
