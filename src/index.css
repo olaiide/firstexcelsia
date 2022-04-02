@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: 'Chalkboard SE';
+  src: local('MyFont'), url(./fonts/2157-font.otf) format('woff');
+}
+
+@font-face {
+  font-family: 'Chalkboard';
+  src: local('MyFont'), url(./fonts/chalkboard.ttf) format('woff');
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
