@@ -35,3 +35,15 @@ export const Header = styled.div`
     }
   }
 `;
+export const Wrapper = styled.div`
+width : 90%;
+max-width: 1100px;
+margin: 0 auto;
+`
+export const TopPost = styled.div`
+background-color : red;
+ display : flex;
+ justify-content : space-between;
+ overflow-x : auto;
+ padding : 30px;
+`

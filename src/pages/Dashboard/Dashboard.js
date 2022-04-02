@@ -1,8 +1,9 @@
 import React from "react";
-import { Container, Header } from "./DashboardElement";
+import { Container, Header, TopPost, Wrapper } from "./DashboardElement";
 import Logo from "../../assets/Logo.svg";
 import Button from "../../components/Button/Button";
 import Card from "../../components/Card/Card";
+import Up from "../../assets/Up.svg"
 const Dashboard = () => {
   return (
     <Container>
@@ -17,7 +18,17 @@ const Dashboard = () => {
         </div>
         </div>
       </Header>
+      <Wrapper>
+      <TopPost>
+         <div><img src={Up} alt="arrow up" width="20px" /><span>Top Post</span></div>
       <Card/>
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      </TopPost>
+      </Wrapper>
     </Container>
   );
 };
