@@ -1,5 +1,7 @@
 import React from "react";
 import NavBar from "../../components/NavBar/NavBar";
+import Footer from "../../components/Footer/Footer";
+import Button from "../../components/Button/Button";
 import {
   Container,
   WrapperOne,
@@ -15,7 +17,7 @@ import Playstore from "../../assets/Playstore.svg";
 import Appstore from "../../assets/Appstore.svg";
 import Whatsapp from "../../assets/Whatsapp.svg";
 import Mail from "../../assets/Mail.svg";
-import Button from "../../components/Button/Button";
+
 const Landing = () => {
   return (
     <Container>
@@ -77,6 +79,7 @@ const Landing = () => {
           </div>
       </HeroThree>
       </WrapperThree>
+      <Footer />
     </Container>
   );
 };
