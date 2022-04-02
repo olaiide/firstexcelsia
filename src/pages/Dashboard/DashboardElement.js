@@ -27,7 +27,7 @@ export const Header = styled.div`
     h3 {
       text-align: center;
       font-family: Chalkboard SE;
-      font-size: 25px;
+      font-size: 15px;
       font-weight: 700;
 
       letter-spacing: 0em;

@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Header } from "./DashboardElement";
 import Logo from "../../assets/Logo.svg";
 import Button from "../../components/Button/Button";
+import Card from "../../components/Card/Card";
 const Dashboard = () => {
   return (
     <Container>
@@ -16,6 +17,7 @@ const Dashboard = () => {
         </div>
         </div>
       </Header>
+      <Card/>
     </Container>
   );
 };
