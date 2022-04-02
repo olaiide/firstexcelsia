@@ -14,7 +14,7 @@ export const WrapperOne = styled.div`
 
 export const HeroOne = styled.div`
   width: 90%;
-  max-width: 1300px;
+  max-width: 1100px;
   margin: 5rem auto;
   display: flex;
   justify-content: space-between;
@@ -65,7 +65,7 @@ export const HeroTwo = styled.div`
   justify-content: space-between;
   margin: 3rem auto;
   width: 90%;
-  max-width: 1300px;
+  max-width: 1100px;
   .first__content {
     color: #000000;
     h3 {
@@ -101,7 +101,7 @@ export const HeroThree = styled.div`
   justify-content: space-between;
   margin: 3rem auto;
   width: 90%;
-  max-width: 1300px;
+  max-width: 1100px;
   .first__content {
    h3{
       font-size: 25px;

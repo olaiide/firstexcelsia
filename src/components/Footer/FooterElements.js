@@ -7,7 +7,7 @@ export const Container = styled.footer`
 
 export const Wrapper = styled.div`
   width: 90%;
-  max-width: 1300px;
+  max-width: 1100px;
   margin: 0 auto;
   overflow: hidden;
   color: white;
@@ -30,13 +30,13 @@ export const Wrapper = styled.div`
     letter-spacing: 0em;
     cursor: pointer;
   }
-  p{
-      text-align : center;
-      font-family: Chalkboard SE;
-font-size: 12px;
-font-weight: 300;
-line-height: 34px;
-letter-spacing: 0em;
-
+  p {
+    text-align: center;
+    font-family: Chalkboard SE;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 34px;
+    letter-spacing: 0em;
+    margin-top : 3rem;
   }
 `;

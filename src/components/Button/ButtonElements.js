@@ -6,7 +6,7 @@ export const ButtonComponent = styled.button`
   background-color : ${(props => props.login ? 'transparent' : '#EA7052' )};
   outline : none !important;
   cursor : pointer;
-  border-radius : 10px;
+  border-radius : 7px;
   display : flex;
   justify-content : center;
   align-items : center;
