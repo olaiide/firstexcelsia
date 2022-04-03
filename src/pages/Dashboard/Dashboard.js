@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Header, TopPost, Wrapper } from "./DashboardElement";
+import { Container, Header, TopPost, Wrapper, TopCard, Trending, TrendingWrapper } from "./DashboardElement";
 import Logo from "../../assets/Logo.svg";
 import Button from "../../components/Button/Button";
 import Card from "../../components/Card/Card";
@@ -20,14 +20,27 @@ const Dashboard = () => {
       </Header>
       <Wrapper>
       <TopPost>
-         <div><img src={Up} alt="arrow up" width="20px" /><span>Top Post</span></div>
+         <div className="top__"><img src={Up} alt="arrow up" width="25px" /><span>Top Post</span></div>
+         <TopCard>
       <Card/>
+      {/* <Card />
       <Card />
       <Card />
       <Card />
-      <Card />
-      <Card />
+      <Card /> */}
+      </TopCard>
       </TopPost>
+      <Trending>
+      <div className="top__"><img src={Up} alt="arrow up" width="25px" /><span>Trending</span></div>
+      <TrendingWrapper>
+      <Card/>
+      <Card/>
+      <Card/>
+      <Card/>
+      <Card/>
+      <Card/>
+      </TrendingWrapper>
+      </Trending>
       </Wrapper>
     </Container>
   );

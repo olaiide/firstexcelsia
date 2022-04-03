@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   min-height: 100vh;
+  font-family : Chalkboard SE;
 `;
 
 export const Header = styled.div`
@@ -41,9 +42,28 @@ max-width: 1100px;
 margin: 0 auto;
 `
 export const TopPost = styled.div`
-background-color : red;
- display : flex;
- justify-content : space-between;
- overflow-x : auto;
  padding : 30px;
+ .top__ span{
+     padding : 25px 30px;
+font-size: 25px;
+font-weight: 700;
+line-height: 30px;
+letter-spacing: 0em;
+
+ }
+`
+export const TopCard = styled.div`
+ padding-top : 4rem;
+`
+export const Trending = styled.div`
+ .top__ span{
+     padding : 25px 30px;
+font-size: 25px;
+font-weight: 700;
+line-height: 30px;
+letter-spacing: 0em;
+
+ }
+`
+export const TrendingWrapper = styled.div`
 `
