@@ -40,9 +40,10 @@ export const Wrapper = styled.div`
 width : 90%;
 max-width: 1100px;
 margin: 0 auto;
+//padding : 30px;
 `
 export const TopPost = styled.div`
- padding : 30px;
+padding : 30px;
  .top__ span{
      padding : 25px 30px;
 font-size: 25px;
@@ -56,6 +57,7 @@ export const TopCard = styled.div`
  padding-top : 4rem;
 `
 export const Trending = styled.div`
+padding : 30px;
  .top__ span{
      padding : 25px 30px;
 font-size: 25px;
@@ -66,4 +68,13 @@ letter-spacing: 0em;
  }
 `
 export const TrendingWrapper = styled.div`
+padding-top : 4rem;
+display: grid;
+//background : red;
+ // justify-content: center;
+  grid-template-columns: repeat(2, 0.1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 0.6fr));
+  grid-gap: 30px;
+ // row-gap : 
+ // justify-content : center;
 `

@@ -5,6 +5,8 @@ import styled from "styled-components";
 const Container = styled.div`
   width: 335px;
   height: 230px;
+ // width : 400px;
+ // height : 330px;
   position: relative;
   .text {
     position: absolute;

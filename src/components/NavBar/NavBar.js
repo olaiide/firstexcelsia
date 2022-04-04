@@ -8,49 +8,40 @@ import {
   HeaderWrapper,
   LogoWrapper,
   StyledLink,
+  Nav,
   TopWrapper,
   Top,
 } from "./NavBarElements";
 const NavBar = () => {
   const [show, setShow] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const hideHandler = () => {
     setShow(false);
   };
+  
+  const OpenMobileMenu = () => {
+    setIsOpen(true)
+  }
   return (
     <>
       <Container>
-        
-        {show && (
-          <TopWrapper>
-            <Top>
-              <div className='first__content'>
-                <div style={{ display: "flex" }}>
-                  <p>New!</p>
-                </div>
-                <div>
-                  <span>Announcing our $15 million series A funding!</span>
-                </div>
-                <div>
-                  <img
-                    src={Close}
-                    alt='close'
-                    width='30px'
-                    className='second__content'
-                    onClick={hideHandler}
-                  />
-                </div>
-              </div>
-            </Top>
-          </TopWrapper>
-        )}
+
+   
         <HeaderWrapper>
+          
           <LogoWrapper>
             <img src={Logo} alt='Rodufy logo' />
           </LogoWrapper>
+          <div onClick={OpenMobileMenu}>
+             click me
+          </div>
+          <Nav click={isOpen}> 
           <ButtonContainer>
             <StyledLink to={"/register"}>
               <Button children={"Register"} width={"small"} height={"45px"} />
             </StyledLink>
+            </ButtonContainer>
+            <ButtonContainer>
             <StyledLink to={"/login"}>
               <Button
                 children={"Log in"}
@@ -61,6 +52,7 @@ const NavBar = () => {
               />
             </StyledLink>
           </ButtonContainer>
+          </Nav>
         </HeaderWrapper>
       </Container>
     </>

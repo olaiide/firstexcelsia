@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import Footer from "../../components/Footer/Footer";
+import Topp from "../../components/Top/Top";
 import Button from "../../components/Button/Button";
 import {
   Container,
@@ -21,6 +22,7 @@ import Mail from "../../assets/Mail.svg";
 const Landing = () => {
   return (
     <Container>
+      
       <NavBar />
       <WrapperOne>
         <HeroOne>
@@ -57,7 +59,9 @@ const Landing = () => {
           <div className="first__content">
             <h3>Everything you’ll <br />need to <span>excel</span> in life</h3>
             <p>We’ve curated a list of valuable resources<br />to get you going in life, all for free!</p>
+            <div className="button__container">
             <Button children={'Get Started'} />
+            </div>
           </div>
           <div className="second__content">
             <div><img src={HeroTwoImage} alt="second" width="100%" height="100%"/></div>

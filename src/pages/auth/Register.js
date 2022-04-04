@@ -25,19 +25,19 @@ const Register = () => {
        
         </LeftContent>
         <RightContent>
-          <div className='form__container'>
+        <div className='form__container'>
             <h2>Register</h2>
-            <form>
-              <div className='input__'>
+            <div className='form__wrapper'>
+              <div className="input__">
                 <input placeholder='Email' />
               </div>
-              <div className='input__'>
+              <div className="input__">
                 <input placeholder='Password' />
               </div>
               <div className='button__container'>
-                <Button children='Register' height="60px" />
+                <Button children='Login' height='60px' />
               </div>
-            </form>
+            </div>
           </div>
         </RightContent>
       </Content>
