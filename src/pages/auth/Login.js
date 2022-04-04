@@ -32,6 +32,9 @@ const Login = () => {
       //   setCheckFields(true)
     }
   }, [email, password]);
+  useEffect (() => {
+    localStorage.setItem('name', email)
+  })
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
@@ -49,11 +52,11 @@ const Login = () => {
       email,
       password,
     };
-    console.log(payload);
     const request = await api.create("/auth/login", payload);
     if (request.success) {
       setLoading(false);
       navigate("/dashboard", { replace: true });
+      localStorage.setItem('token', request.token);
     } else if (!request.success) {
       console.log("invalid credentials ");
       setLoading(false);
@@ -116,74 +119,6 @@ const Login = () => {
             </FormContainer>
             </form>
           </div>
-          {/* <div
-            style={{
-              background: "red",
-              width: "85%",
-              maxWidth: "500px",
-              margin: "0 auto",
-            }}
-          >
-            <h2>Login</h2>
-            <FormContainer>
-              <div className='form__container'>
-                {error && <p>{errorMsg}</p>}
-                {checkFields && <p>Please input all fields</p>}
-                <form onSubmit={proceed_to_login}>
-                  <div className='input__'>
-                    <input
-                      placeholder='Email'
-                      value={email}
-                      onChange={handleEmailChange}
-                    />
-                  </div>
-                  <div className='input__'>
-                    <input
-                      placeholder='Password'
-                      value={password}
-                      onChange={handlePasswordChange}
-                    />
-                  </div>
-                  <div className='button__container'>
-                    <Button
-                      children='Login'
-                      height='60px'
-                      loading={loading}
-                      disabled={disabled}
-                    />
-                  </div>
-                </form>
-              </div>
-            </FormContainer>
-          </div>
-          {/* <div className='form__container'>
-              {error && <p>{errorMsg}</p>}
-              {checkFields && <p>Please input all fields</p>}
-              <form onSubmit={proceed_to_login}>
-                <div className='input__'>
-                  <input
-                    placeholder='Email'
-                    value={email}
-                    onChange={handleEmailChange}
-                  />
-                </div>
-                <div className='input__'>
-                  <input
-                    placeholder='Password'
-                    value={password}
-                    onChange={handlePasswordChange}
-                  />
-                </div>
-                <div className='button__container'>
-                  <Button
-                    children='Login'
-                    height='60px'
-                    loading={loading}
-                    disabled={disabled}
-                  />
-                </div>
-              </form>
-            </div> */}
         </RightContent>
       </Content>
     </Container>
