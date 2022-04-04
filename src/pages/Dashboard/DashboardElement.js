@@ -50,11 +50,24 @@ font-size: 25px;
 font-weight: 700;
 line-height: 30px;
 letter-spacing: 0em;
-
+overflow : hidden;
  }
 `
 export const TopCard = styled.div`
- padding-top : 4rem;
+ //padding-top : 4rem;
+ background-color : red;
+ //overflow : hidden;
+ display : flex;
+ overflow-x : scroll;
+ height : 400px;
+ height : 100%;
+ width : 1000px;
+ //width : fit-content;
+ div{
+     //height : 100%;
+     overflow-y : hidden;
+    // overflow-x : scroll;
+ }
 `
 export const Trending = styled.div`
 padding : 30px;

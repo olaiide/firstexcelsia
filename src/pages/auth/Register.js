@@ -10,6 +10,7 @@ import {
   Content,
   RightContent,
   LeftContent,
+  FormContainer
 } from "./SharedElements";
 import Button from "../../components/Button/Button";
 import Line1 from "../../assets/Line.svg";
@@ -90,31 +91,44 @@ const Register = () => {
         </LeftContent>
         <RightContent>
           <ToastContainer transition={bounce}/>
-          <div className='form__container'>
-            <h2>Register</h2>
-            <div className='form__wrapper'>
-              {error && <p>{errorMsg}</p>}
-              <form onSubmit={proceed_to_registration}>
-                <div className='input__'>
+          <div className='form__wrapper'>
+            <form onSubmit={proceed_to_registration}>
+            <h2 style={{ marginTop: "4rem", textAlign: "center" }}>Register</h2>
+            {error && <p>{errorMsg}</p>}
+            <FormContainer>
+              <div className='form__container'>
+                <div>
                   <input
+                    type='text'
                     placeholder='Email'
                     value={email}
                     onChange={handleEmailChange}
+                    required
                   />
                 </div>
-                <div className='input__'>
+                <div>
                   <input
+                    type='text'
                     placeholder='Password'
                     value={password}
                     onChange={handlePasswordChange}
+                    required
                   />
                 </div>
                 <div className='button__container'>
-                  <Button children='Register' height='60px' loading={loading} disabled={disabled} />
+                  <Button
+                    loading={loading}
+                    disabled={disabled}
+                    height={"65px"}
+                    children={'Register'}
+
+                  />
                 </div>
-              </form>
-            </div>
+              </div>
+            </FormContainer>
+            </form>
           </div>
+      
         </RightContent>
       </Content>
     </Container>

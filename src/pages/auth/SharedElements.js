@@ -53,60 +53,68 @@ export const RightContent = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  .form__container {
-    width: 45%;
-    max-width: 900px;
+  .form__wrapper {
+    background: white;
+    width: 95%;
+    max-width: 400px;
     margin: 0 auto;
-    background-color: #fff;
-    height: 440px;
+    height: 400px;
+    border-radius: 7px;
+  }
+  p{
+    text-align : center;
+    color : red;
+  }
+  .form__container {
+    width: 93%;
+    margin: 0 auto;
+
     border-radius: 10px;
-    @media screen and (max-width : 1000px) {
-       width : 90%;
-       height : 400px;
+    @media screen and (max-width: 1000px) {
+      width: 90%;
+      height: 400px;
     }
     h2 {
       text-align: center;
-      margin-top: 3rem;
+      margin-top: 5rem;
       font-size: 25px;
       font-weight: 700;
       line-height: 40px;
       letter-spacing: 0em;
     }
-  }
-  .form__wrapper {
-   // background: red;
-    width: 82%;
-    width : 300px;
-  //  max-width : 700px;
-    margin: 0 auto;
-    p{
-      text-align : center;
-      color : red;
+
+    input {
+      border: 1px solid transparent;
+      height: 60px;
+      width: 96%;
+      border-radius: 7px;
+      background-color: #e5e5e5;
+      outline: none;
+      padding-left: 7px;
+      margin-top: 20px;
+      font-size : 15px;
+      &::placeholder {
+        font-family: Chalkboard SE;
+        font-size: 17px;
+        font-weight: 300;
+        line-height: 20px;
+        letter-spacing: 0em;
+      }
     }
   }
-  .input__ {
-   // background-color : green;
-  }
-  .input__ input {
-    width: 78%;
-    outline: none;
-    border-radius: 6px;
-    border: none;
-    background-color: #e5e5e5;
-    margin-top: 15px;
-    padding: 23px 33px;
-    &::placeholder {
-      font-family: Chalkboard SE;
-      font-size: 15px;
-      font-weight: 300;
-    }
-  }
+
   .button__container {
     margin-top: 2rem;
+    margin-bottom: 2rem;
     width: 100%;
-   // background-color: yellow;
   }
   @media screen and (max-width: 1000px) {
     width: 100%;
   }
+`;
+
+export const FormContainer = styled.div`
+  width: 90%;
+  margin: 0 auto;
+  max-width: 500px;
 `;

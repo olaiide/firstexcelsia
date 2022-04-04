@@ -1,63 +1,68 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 import Logo from "../../assets/Logo.svg";
-import Close from "../../assets/Close.svg";
+import './NavBar.css'
 import Button from "../Button/Button";
-import {
-  ButtonContainer,
-  Container,
-  HeaderWrapper,
-  LogoWrapper,
-  StyledLink,
-  Nav,
-  TopWrapper,
-  Top,
-} from "./NavBarElements";
-const NavBar = () => {
-  const [show, setShow] = useState(true);
-  const [isOpen, setIsOpen] = useState(false);
-  const hideHandler = () => {
-    setShow(false);
-  };
-  
-  const OpenMobileMenu = () => {
-    setIsOpen(true)
-  }
-  return (
-    <>
-      <Container>
 
-   
-        <HeaderWrapper>
-          
-          <LogoWrapper>
-            <img src={Logo} alt='Rodufy logo' />
-          </LogoWrapper>
-         
-          <Nav click={isOpen}> 
-  
-          <ButtonContainer>
-            <StyledLink to={"/register"}>
-              <Button children={"Register"} width={"small"} height={"45px"} />
-            </StyledLink>
-            </ButtonContainer>
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
+export const ButtonContainer = styled.div`
+   @media (max-width: 768px) {
+   margin : 0 auto;
+  } 
+`;
+
+
+const NavBar = () => {
+  const [click, setClick] = useState(false);
+
+  const handleClick = () => {
+    setClick(!click);
+  };
+
+  return (
+    <Fragment>
+        <nav className={"navbar"}>
+        <div className="nav-container">
+          <div className="nav-logo">
+            <img src={Logo} alt="Logo"/>
+          </div>
+          <ul className={click ? "nav-menu active" : "nav-menu"}>
+            <li className="nav-item">
             <ButtonContainer>
-            <StyledLink to={"/login"}>
-              <Button
-                children={"Log in"}
-                width={"small"}
-                login={true}
-                border={true}
-                height={"45px"}
-              />
-            </StyledLink>
-          </ButtonContainer>
-          </Nav>
-           <div onClick={OpenMobileMenu}>
-             click me
-          </div> 
-        </HeaderWrapper>
-      </Container>
-    </>
+              <StyledLink to={"/register"}>
+                <Button children={"Register"} width={"small"} height={"45px"} />
+              </StyledLink>
+            </ButtonContainer>
+            </li>
+            <li className="nav-item">
+            <ButtonContainer>
+              <StyledLink to={"/login"}>
+                <Button
+                  children={"Log in"}
+                  width={"small"}
+                  login={true}
+                  border={true}
+                  height={"45px"}
+                />
+              </StyledLink>
+            </ButtonContainer>
+            </li>
+          
+          </ul>
+          <div
+            className={click ? "menu_btn menu_btn_line" : "menu_btn menu_btn_open"}
+            onClick={handleClick}
+          >
+            <div className="menu_btn_line"></div>
+            <div className="menu_btn_line"></div>
+            <div className="menu_btn_line"></div>
+          </div>
+        </div>
+      </nav>
+    </Fragment>
   );
 };
 

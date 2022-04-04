@@ -3,7 +3,7 @@ import CardImage from "../../assets/Card.svg";
 import styled from "styled-components";
 
 const Container = styled.div`
-  width: 335px;
+  width: 300px;
   height: 230px;
  // width : 400px;
  // height : 330px;
@@ -18,7 +18,6 @@ const Container = styled.div`
     width: 250px;
     overflow: hidden;
     white-space: nowrap;
-    //height : 40px;
     border-radius: 7px;
     color: #fff;
     font-family: Chalkboard SE;
@@ -35,8 +34,7 @@ const Card = (props) => {
         style={{ borderRadius: "13px" }}
       />
       <div className='text'>
-        Things you need to know to eat well
-        ehjbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+        ejrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrnk
       </div>
     </Container>
   );

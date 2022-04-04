@@ -5,7 +5,6 @@ export const Container = styled.div`
   width: 100%;
   margin: 0 auto;
   font-family: Chalkboard SE;
-  //background-color : blue;
   overflow : hidden;
   @media screen and (max-width : 768px) {
     text-align : center;
@@ -30,6 +29,7 @@ export const HeroOne = styled.div`
     width : 93%;
     flex-direction : column;
     text-align : center;
+    margin-top : 0rem;
   }
   .first__content {
     color: white;
@@ -37,7 +37,6 @@ export const HeroOne = styled.div`
     @media screen and (max-width : 764px) {
     width : 100%;
     margin : 0 auto;
-  //  background-color : red;
     text-align : center;
   }
     h3 {
@@ -59,14 +58,18 @@ export const HeroOne = styled.div`
     }
     .apps {
       display: flex;
-      // background-color: red;
+     // background-color: red;
       justify-content: center;
-      width: 280px;
-      h4 {
+      width: 250px;
+      @media screen and (max-width : 764px) {
+          width : 400px;
+          margin : 0 auto;
+          margin-bottom : 2rem;
       }
     }
     .app__wrapper {
-      margin: px;
+      display : flex;
+
     }
   }
   .second__content {

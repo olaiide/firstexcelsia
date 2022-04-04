@@ -22,7 +22,7 @@ import Mail from "../../assets/Mail.svg";
 const Landing = () => {
   return (
     <Container>
-      
+      <Topp/>
       <NavBar />
       <WrapperOne>
         <HeroOne>
@@ -37,8 +37,8 @@ const Landing = () => {
               providing education and quality health
             </p>
             <div className="apps">
-              <h4>DOWNLOAD APP</h4>
               <div className="app__wrapper">
+                <div style={{fontSize : '15px'}}>DOWNLOAD APP</div>
                 <img src={Playstore} alt='playstore' width="80px" height="30px" />
                 <img src={Appstore} alt='appstore' width="80px" height="30px" />
               </div>

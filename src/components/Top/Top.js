@@ -7,17 +7,20 @@ export const TopWrapper = styled.div`
   width: 100%;
   transition : all 2s;
   @media screen and (max-width : 764px) {
-      display: none;
+    //  display: none;
   }
 `;
 export const Top = styled.div`
-
   width: 85%;
   max-width: 1000px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   height: 100%;
+  @media screen and (max-width : 764px){
+    width : 100%;
+    flex-direction : column;
+  }
   .first__content {
       width : 100%;
       display : flex;
@@ -39,6 +42,10 @@ export const Top = styled.div`
       position : relative;
       right : 0rem;
       width : 500px;
+      @media screen and (max-width : 764px){
+        width : 170px;
+        right : 0.8rem;
+      }
     }
     p {
       background-color: rgba(255, 255, 255, 0.2);
@@ -49,10 +56,21 @@ export const Top = styled.div`
       font-size: 14px;
       font-weight: 300;
       letter-spacing: 0em;
+      @media screen and (max-width : 764px) {
+      flex-direction : column;
+      margin-left : 0.5rem;
     }
+    }
+    }
+    @media screen and (max-width : 764px) {
+      flex-direction : column;
+      padding-top : 1rem;
     }
     .second__content {
       cursor : pointer;
+      @media screen and (max-width : 764px){
+        margin-right : 1rem;
+      }
     }
 `;
 const Topp = () => {

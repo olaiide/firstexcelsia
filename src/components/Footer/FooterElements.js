@@ -20,6 +20,9 @@ export const Wrapper = styled.div`
     list-style-type: none;
     padding: 0;
     margin-top: 2rem;
+    @media screen and (max-width : 764px) {
+      flex-direction : column;
+    }
   }
   li {
     padding: 20px;
