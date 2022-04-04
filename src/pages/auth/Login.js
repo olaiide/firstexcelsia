@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/Logo.svg";
+import api from "../../api/api";
+import axios from "axios";
 import {
   Container,
   Content,
@@ -12,6 +15,30 @@ import Line2 from "../../assets/Line2.svg";
 import Line3 from "../../assets/Line3.svg";
 import Test from "../../assets/test.svg";
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  let navigate = useNavigate();
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+  const proceed_to_login = async (e) => {
+    e.preventDefault();
+    const payload = {
+      email,
+      password,
+    };
+    console.log(payload);
+    const request = await api.create("/auth/login", payload);
+    if (request.status) {
+      navigate("/dashboard", { replace: true });
+    }
+  };
+
   return (
     <Container>
       <Content>
@@ -26,16 +53,27 @@ const Login = () => {
         <RightContent>
           <div className='form__container'>
             <h2>Login</h2>
+
             <div className='form__wrapper'>
-              <div className="input__">
-                <input placeholder='Email' />
-              </div>
-              <div className="input__">
-                <input placeholder='Password' />
-              </div>
-              <div className='button__container'>
-                <Button children='Login' height='60px' />
-              </div>
+              <form onSubmit={proceed_to_login}>
+                <div className='input__'>
+                  <input
+                    placeholder='Email'
+                    value={email}
+                    onChange={handleEmailChange}
+                  />
+                </div>
+                <div className='input__'>
+                  <input
+                    placeholder='Password'
+                    value={password}
+                    onChange={handlePasswordChange}
+                  />
+                </div>
+                <div className='button__container'>
+                  <Button children='Login' height='60px' />
+                </div>
+              </form>
             </div>
           </div>
         </RightContent>
