@@ -7,8 +7,10 @@ const Button = (props) => {
       login={props.login}
       border={props.border}
       height={props.height}
+      loading={props.loading}
+      disabled={props.disabled}
     >
-      {props.children}
+       {props.loading ? <span className='spinner'></span> : props.children}
     </ButtonComponent>
   );
 };

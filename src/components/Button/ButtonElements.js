@@ -1,5 +1,6 @@
-import styled from "styled-components";
 
+
+import styled from "styled-components";
 export const ButtonComponent = styled.button`
   width : ${(props => props.width === 'small' ? '160px' : '100%')};
   height : ${(props => props.height)};
@@ -17,4 +18,21 @@ export const ButtonComponent = styled.button`
   font-weight: 700;
   line-height: 51px;
   letter-spacing: 0em;
+
+  .spinner {
+    width: 21.67px;
+    height: 21.67px;
+    border: 3px solid white;
+    border-radius: 50%;
+    border-top-color: rgba(252, 198, 26, 0.001);
+    animation: loader 1s linear infinite;
+  }
+  @keyframes loader {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
 `;

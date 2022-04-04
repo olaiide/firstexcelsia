@@ -4,6 +4,10 @@ export const Container = styled.div`
   height: 100px;
   width: 100%;
   background-color: #301446;
+  overflow : hidden;
+  top : 0;
+  z-index: 20;
+  position : sticky;
   //background-color : red;
 `;
 
@@ -62,13 +66,13 @@ export const Top = styled.div`
     }
 `;
 export const HeaderWrapper = styled.div`
-  width: 90%;
+  width: 100%;
  // background-color : red;
   max-width: 1100px;
   height: inherit;
   margin: 0 auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
  // position : absolute;
   /* z-index : 20;
@@ -93,26 +97,27 @@ export const ButtonContainer = styled.li`
     justify-content: space-between;
     align-items: center;
     height: 100px; */
-    background-color : yellow;
+    width : 100px;
+  //  background-color : yellow;
   } 
 `;
 export const LogoWrapper = styled.div``;
 
 export const Nav = styled.ul`
- background-color : green;
-  width: 370px;
+ //background-color : green;
+ // width: 370px;
   display: flex;
   justify-content: space-between;
- 
   list-style-type : none;
   @media screen and (max-width : 764px){
-    left : ${(props ) => props.click ? '0' : '-150%'};
+    left : ${(props ) => props.click ? '0' : '-110%'};
     background : red;
-   // width : 100%;
     position : absolute;
     top : 80px;
-    height : 100vh;
+    right : 0;
+    height : 100vh !important;
     flex-direction : column;
     margin : 0 auto;
+    overflow : hidden;
   }
 `

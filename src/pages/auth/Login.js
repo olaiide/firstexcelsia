@@ -17,8 +17,21 @@ import Test from "../../assets/test.svg";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const [loading, setLoading] = useState(false);
+  const [disabled, setDisabled] = useState(true);
+  const [error, setError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+  const [checkFields, setCheckFields] = useState(false)
   let navigate = useNavigate();
+
+  useEffect(() => {
+    if (email.includes("@") && password.length >= 8) {
+      setDisabled(false);
+    } else {
+      setDisabled(true);
+  //   setCheckFields(true)
+    }
+  }, [email, password]);
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
@@ -27,6 +40,10 @@ const Login = () => {
     setPassword(e.target.value);
   };
   const proceed_to_login = async (e) => {
+    if (!email.includes("@") && !password.length >= 8) {
+      setCheckFields(true)
+    }
+    setLoading(true);
     e.preventDefault();
     const payload = {
       email,
@@ -34,9 +51,20 @@ const Login = () => {
     };
     console.log(payload);
     const request = await api.create("/auth/login", payload);
-    if (request.status) {
+    if (request.success) {
+      setLoading(false);
       navigate("/dashboard", { replace: true });
+    } else if (!request.success) {
+      console.log("invalid credentials ");
+      setLoading(false);
+      setError(true);
+      setErrorMsg(request.Error);
+    } else {
+      console.log("network issue");
+      setError(true);
+      setErrorMsg("An error occured, please try again later");
     }
+    setLoading(false);
   };
 
   return (
@@ -55,6 +83,8 @@ const Login = () => {
             <h2>Login</h2>
 
             <div className='form__wrapper'>
+              {error && <p>{errorMsg}</p>}
+              {checkFields && <p>Please input all fields</p>}
               <form onSubmit={proceed_to_login}>
                 <div className='input__'>
                   <input
@@ -71,7 +101,12 @@ const Login = () => {
                   />
                 </div>
                 <div className='button__container'>
-                  <Button children='Login' height='60px' />
+                  <Button
+                    children='Login'
+                    height='60px'
+                    loading={loading}
+                    disabled={disabled}
+                  />
                 </div>
               </form>
             </div>

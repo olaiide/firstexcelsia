@@ -32,10 +32,9 @@ const NavBar = () => {
           <LogoWrapper>
             <img src={Logo} alt='Rodufy logo' />
           </LogoWrapper>
-          <div onClick={OpenMobileMenu}>
-             click me
-          </div>
+         
           <Nav click={isOpen}> 
+  
           <ButtonContainer>
             <StyledLink to={"/register"}>
               <Button children={"Register"} width={"small"} height={"45px"} />
@@ -53,6 +52,9 @@ const NavBar = () => {
             </StyledLink>
           </ButtonContainer>
           </Nav>
+           <div onClick={OpenMobileMenu}>
+             click me
+          </div> 
         </HeaderWrapper>
       </Container>
     </>

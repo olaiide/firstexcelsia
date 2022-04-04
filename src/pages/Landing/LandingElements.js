@@ -5,6 +5,8 @@ export const Container = styled.div`
   width: 100%;
   margin: 0 auto;
   font-family: Chalkboard SE;
+  //background-color : blue;
+  overflow : hidden;
   @media screen and (max-width : 768px) {
     text-align : center;
   }

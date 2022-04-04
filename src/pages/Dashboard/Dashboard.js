@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Header, TopPost, Wrapper, TopCard, Trending, TrendingWrapper } from "./DashboardElement";
+import api from "../../api/api"
 import Logo from "../../assets/Logo.svg";
 import Button from "../../components/Button/Button";
 import Card from "../../components/Card/Card";
 import Up from "../../assets/Up.svg"
 const Dashboard = () => {
+
+    useEffect(() => {
+        getProducts()
+    },[])
+
+    const getProducts = async() => {
+        const request = await api.get('/products')
+        console.log(request.data)
+    }
   return (
     <Container>
       <Header>

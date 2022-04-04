@@ -62,7 +62,7 @@ export const RightContent = styled.div`
     border-radius: 10px;
     @media screen and (max-width : 1000px) {
        width : 90%;
-       height : 350px;
+       height : 400px;
     }
     h2 {
       text-align: center;
@@ -79,6 +79,10 @@ export const RightContent = styled.div`
     width : 300px;
   //  max-width : 700px;
     margin: 0 auto;
+    p{
+      text-align : center;
+      color : red;
+    }
   }
   .input__ {
    // background-color : green;
