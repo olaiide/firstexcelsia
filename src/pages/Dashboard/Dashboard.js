@@ -1,8 +1,6 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { css } from "@emotion/react";
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import PulseLoader from "react-spinners/PulseLoader";
 import {
   Container,
@@ -13,6 +11,7 @@ import {
   Trending,
   TrendingWrapper,
   Content,
+  ButtonContainer,
 } from "./DashboardElement";
 import api from "../../api/api";
 import Logo from "../../assets/Logo.svg";
@@ -30,32 +29,21 @@ const override = css`
 const Dashboard = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [postsToShow, setPostsToShow] = useState([]);
+  const [next] = useState(8);
+  const [postLength, setpostLength] = useState(4);
   let navigate = useNavigate();
   useEffect(() => {
     getProducts();
   }, []);
 
-  useEffect(() => {
-    loopWithSlice(10, postsPerPage);
-  }, []);
   const getName = localStorage.getItem("name");
   const find = getName.indexOf("@");
   const name = getName.substring(0, find);
-  const postsPerPage = 20;
-  let arrayForHoldingPosts = [];
-  const ref = useRef(postsPerPage);
-
-  const loopWithSlice = (start, end) => {
-    const slicedPosts = data.slice(start, end);
-    arrayForHoldingPosts = arrayForHoldingPosts.concat(slicedPosts);
-    setPostsToShow(arrayForHoldingPosts);
-  };
 
   const handleShowMorePosts = () => {
-    loopWithSlice(ref.current, ref.current + postsPerPage);
-    ref.current += postsPerPage;
+    setpostLength(postLength + next);
   };
+
   const getProducts = async () => {
     setLoading(true);
     const request = await api.get("/products");
@@ -107,10 +95,6 @@ const Dashboard = () => {
             </div>
             <Top>
               <Content>
-                {/* <Card />
-               <Card />
-               <Card />
-               <Card /> */}
                 {data &&
                   data.slice(0, 4).map((item) => (
                     <>
@@ -130,18 +114,27 @@ const Dashboard = () => {
               <span>Trending</span>
             </div>
             <TrendingWrapper>
-              {data &&
-                data.map((item) => (
-                  <>
+              {data.map((item, index) => {
+                return (
+                  index < postLength && (
                     <Card
                       text={item.description}
                       src={item.metaImageUrl}
                       key={item.id}
                     />
-                  </>
-                ))}
+                  )
+                );
+              })}
             </TrendingWrapper>
-            <button onClick={handleShowMorePosts}>load more</button>
+            {postLength !== data.length && (
+              <ButtonContainer>
+                <Button
+                  onClick={handleShowMorePosts}
+                  children={"Load more"}
+                  height={"60px"}
+                />
+              </ButtonContainer>
+            )}
           </Trending>
         </Wrapper>
       </Container>

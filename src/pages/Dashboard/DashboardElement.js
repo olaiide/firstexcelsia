@@ -99,3 +99,11 @@ export const Content = styled.div`
     justify-content : center;
   }
 `;
+
+export const ButtonContainer = styled.div`
+width : 400px;
+margin : 3rem auto;
+@media screen and (max-width : 768px) {
+   width : 100%;
+}
+`
