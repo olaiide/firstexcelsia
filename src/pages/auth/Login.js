@@ -35,6 +35,10 @@ const Login = () => {
   useEffect (() => {
     localStorage.setItem('name', email)
   })
+  useEffect(() => {
+    const timer = setTimeout(() => setError(false), 3000);
+    return () => clearTimeout(timer);
+  }, []);
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
@@ -57,11 +61,13 @@ const Login = () => {
       setLoading(false);
       navigate("/dashboard", { replace: true });
       localStorage.setItem('token', request.token);
+      
     } else if (!request.success) {
       console.log("invalid credentials ");
       setLoading(false);
       setError(true);
       setErrorMsg(request.Error);
+      setTimeout(() => setError(false), 3000)
     } else {
       console.log("network issue");
       setError(true);

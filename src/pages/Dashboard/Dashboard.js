@@ -1,16 +1,18 @@
 import React, { useEffect, useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { css } from "@emotion/react";
 import { Carousel } from "react-responsive-carousel";
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import PulseLoader from "react-spinners/PulseLoader";
 import {
   Container,
   Header,
   TopPost,
   Wrapper,
-  TopCard,
+  Top,
   Trending,
   TrendingWrapper,
+  Content,
 } from "./DashboardElement";
 import api from "../../api/api";
 import Logo from "../../assets/Logo.svg";
@@ -28,34 +30,42 @@ const override = css`
 const Dashboard = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [postsToShow, setPostsToShow] = useState([])
+  const [postsToShow, setPostsToShow] = useState([]);
+  let navigate = useNavigate();
   useEffect(() => {
     getProducts();
   }, []);
 
   useEffect(() => {
-    loopWithSlice(10, postsPerPage)
-  }, [])
- const postsPerPage = 20;
- let arrayForHoldingPosts = [];
- const ref = useRef(postsPerPage);
+    loopWithSlice(10, postsPerPage);
+  }, []);
+  const getName = localStorage.getItem("name");
+  const find = getName.indexOf("@");
+  const name = getName.substring(0, find);
+  const postsPerPage = 20;
+  let arrayForHoldingPosts = [];
+  const ref = useRef(postsPerPage);
 
- const loopWithSlice = (start, end) => {
-    const slicedPosts = data.slice(start, end)
-    arrayForHoldingPosts = arrayForHoldingPosts.concat(slicedPosts)
-    setPostsToShow(arrayForHoldingPosts)
-  }
+  const loopWithSlice = (start, end) => {
+    const slicedPosts = data.slice(start, end);
+    arrayForHoldingPosts = arrayForHoldingPosts.concat(slicedPosts);
+    setPostsToShow(arrayForHoldingPosts);
+  };
 
   const handleShowMorePosts = () => {
-    loopWithSlice(ref.current, ref.current + postsPerPage)
-    ref.current += postsPerPage
-  }
+    loopWithSlice(ref.current, ref.current + postsPerPage);
+    ref.current += postsPerPage;
+  };
   const getProducts = async () => {
     setLoading(true);
     const request = await api.get("/products");
-    console.log(request.data[0].price);
     setData(request.data);
     setLoading(false);
+  };
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    navigate("/");
   };
   if (loading)
     return (
@@ -77,9 +87,14 @@ const Dashboard = () => {
               <img src={Logo} alt='' />
             </div>
             <div className='right__content'>
-              <h3>Hi email</h3>
+              <h3>Hi {name}</h3>
               <div>
-                <Button width={"small"} children={"Log out"} height={"45px"} />
+                <Button
+                  width={"small"}
+                  children={"Log out"}
+                  height={"45px"}
+                  onClick={logout}
+                />
               </div>
             </div>
           </div>
@@ -90,14 +105,24 @@ const Dashboard = () => {
               <img src={Up} alt='arrow up' width='25px' />
               <span>Top Post</span>
             </div>
-            <TopCard>
-                
-            <Card />
-             {/* <Card />
-             <Card />
-             <Card />
-              <Card /> */}
-            </TopCard>
+            <Top>
+              <Content>
+                {/* <Card />
+               <Card />
+               <Card />
+               <Card /> */}
+                {data &&
+                  data.slice(0, 4).map((item) => (
+                    <>
+                      <Card
+                        text={item.description}
+                        src={item.metaImageUrl}
+                        key={item.id}
+                      />
+                    </>
+                  ))}
+              </Content>
+            </Top>
           </TopPost>
           <Trending>
             <div className='top__'>
@@ -110,12 +135,11 @@ const Dashboard = () => {
                   <>
                     <Card
                       text={item.description}
-                      image={item.metaImageUrl}
+                      src={item.metaImageUrl}
                       key={item.id}
                     />
                   </>
                 ))}
-                
             </TrendingWrapper>
             <button onClick={handleShowMorePosts}>load more</button>
           </Trending>

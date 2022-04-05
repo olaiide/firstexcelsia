@@ -50,6 +50,7 @@ const Landing = () => {
                 src={HeroOneImage}
                 alt='hero one svg'
                 width="100%"
+               // style={{borderRadius : '40px'}}
               />
             </div>
           </div>

@@ -2,7 +2,7 @@
 
 import styled from "styled-components";
 export const ButtonComponent = styled.button`
-  width : ${(props => props.width === 'small' ? '160px' : '100%')};
+  width : ${(props => props.width === 'small' ? '140px' : '100%')};
   height : ${(props => props.height)};
   background-color : ${(props => props.login ? 'transparent' : '#EA7052' )};
   outline : none !important;

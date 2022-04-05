@@ -9,6 +9,7 @@ const Button = (props) => {
       height={props.height}
       loading={props.loading}
       disabled={props.disabled}
+      onClick={props.onClick}
     >
        {props.loading ? <span className='spinner'></span> : props.children}
     </ButtonComponent>
