@@ -102,9 +102,12 @@ export const Content = styled.div`
   display: grid;
   grid-template-columns: 0.07fr 0.07fr 0.07fr 0.07fr;
   grid-column-gap: 60px;
-  min-width: 120rem;
+  width: 150rem;
+  height : 320px;
+  place-items : center;
   @media screen and (max-width : 764px) {
     column-gap : 30px;
+    width : 110rem;
   }
 `;
 
