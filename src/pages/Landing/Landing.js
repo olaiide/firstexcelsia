@@ -11,6 +11,7 @@ import {
   HeroThree,
   WrapperThree,
 } from "./LandingElements";
+import { StyledLink } from "../../components/NavBar/NavBar";
 import HeroOneImage from "../../assets/HeroOne.svg";
 import HeroTwoImage from "../../assets/HeroTwo.svg";
 import HeroThreeImage from "../../assets/HeroThree.svg";
@@ -50,7 +51,6 @@ const Landing = () => {
                 src={HeroOneImage}
                 alt='hero one svg'
                 width="100%"
-               // style={{borderRadius : '40px'}}
               />
             </div>
           </div>
@@ -61,7 +61,9 @@ const Landing = () => {
             <h3>Everything you’ll <br />need to <span>excel</span> in life</h3>
             <p>We’ve curated a list of valuable resources<br />to get you going in life, all for free!</p>
             <div className="button__container">
+              <StyledLink to="/register">
             <Button children={'Get Started'} />
+            </StyledLink>
             </div>
           </div>
           <div className="second__content">

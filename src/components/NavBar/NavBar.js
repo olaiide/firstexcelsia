@@ -5,10 +5,10 @@ import Logo from "../../assets/Logo.svg";
 import './NavBar.css'
 import Button from "../Button/Button";
 
-const StyledLink = styled(Link)`
+export const StyledLink = styled(Link)`
   text-decoration: none;
 `;
-export const ButtonContainer = styled.div`
+const ButtonContainer = styled.div`
    @media (max-width: 768px) {
    margin : 0 auto;
   } 

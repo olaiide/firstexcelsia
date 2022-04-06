@@ -107,7 +107,7 @@ export const Content = styled.div`
   place-items : center;
   @media screen and (max-width : 764px) {
     column-gap : 30px;
-    width : 110rem;
+    width : 1300px;
   }
 `;
 
