@@ -50,11 +50,19 @@ export const Wrapper = styled.div`
 `;
 export const TopPost = styled.div`
   padding: 30px;
+  .top__{
+    @media screen and (max-width : 768px ){
+    margin-top : 15px;
+  }
+  }
   .top__ span {
     padding: 25px 30px;
     font-size: 25px;
     font-weight: 700;
     line-height: 30px;
+  }
+  @media screen and (max-width : 768px ){
+    padding : 15px;
   }
 `;
 export const Trending = styled.div`
@@ -65,6 +73,9 @@ export const Trending = styled.div`
     font-weight: 700;
     line-height: 30px;
     letter-spacing: 0em;
+  }
+  @media screen and (max-width : 768px ){
+    padding : 15px;
   }
 `;
 export const TrendingWrapper = styled.div`
@@ -78,7 +89,7 @@ export const TrendingWrapper = styled.div`
 `;
 
 export const Top = styled.div`
-margin-top: 3rem;
+  margin-top: 3rem;
   overflow-x: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -93,9 +104,7 @@ export const Content = styled.div`
   grid-column-gap: 60px;
   min-width: 120rem;
   @media screen and (max-width : 764px) {
-    justify-content : center;
-    column-gap : 20px;
-    margin-left: -7rem;
+    column-gap : 30px;
   }
 `;
 
