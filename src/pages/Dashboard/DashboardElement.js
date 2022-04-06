@@ -8,6 +8,7 @@ export const Container = styled.div`
 export const Header = styled.div`
   background-color: #301446;
   overflow: hidden;
+  height : 130px;
   .header__wrapper {
     width: 90%;
     max-width: 1100px;
@@ -15,7 +16,6 @@ export const Header = styled.div`
     display: flex;
     justify-content: space-between;
     @media screen and (max-width : 746px){
-     // width : 100%;
     }
   }
   .left__content {
@@ -56,9 +56,6 @@ export const TopPost = styled.div`
     font-weight: 700;
     line-height: 30px;
   }
-  /* @media screen and (max-width : 764px){
-      padding : 0px;
-  } */
 `;
 export const Trending = styled.div`
   padding: 30px;
@@ -97,6 +94,8 @@ export const Content = styled.div`
   min-width: 120rem;
   @media screen and (max-width : 764px) {
     justify-content : center;
+    column-gap : 20px;
+    margin-left: -7rem;
   }
 `;
 

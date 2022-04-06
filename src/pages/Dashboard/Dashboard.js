@@ -57,7 +57,7 @@ const Dashboard = () => {
   };
   if (loading)
     return (
-      <div className='sweet-loading'>
+      <div>
         <PulseLoader
           color={"#343A40"}
           loading={true}
@@ -80,7 +80,7 @@ const Dashboard = () => {
                 <Button
                   width={"small"}
                   children={"Log out"}
-                  height={"45px"}
+                  height={"40px"}
                   onClick={logout}
                 />
               </div>
@@ -97,13 +97,13 @@ const Dashboard = () => {
               <Content>
                 {data &&
                   data.slice(0, 4).map((item) => (
-                    <>
+                    <div key={item.id}>
                       <Card
                         text={item.description}
                         src={item.metaImageUrl}
                         key={item.id}
                       />
-                    </>
+                    </div>
                   ))}
               </Content>
             </Top>

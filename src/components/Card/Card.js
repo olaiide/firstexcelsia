@@ -1,5 +1,4 @@
 import React from "react";
-import CardImage from "../../assets/Card.svg";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -25,7 +24,7 @@ const Container = styled.div`
     }
   }
   @media screen and (max-width : 764px) {
-  width : 300px;
+   width : 300px;
    margin : 0 auto;
   }
 `;
@@ -37,7 +36,7 @@ const Card = (props) => {
         alt=''
         width='100%'
         height='100%'
-        style={{ borderRadius: "13px" }}
+        style={{ borderRadius: "10px" }}
       />
       <div className='text'>
         {props.text}

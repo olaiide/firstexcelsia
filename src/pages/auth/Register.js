@@ -40,7 +40,6 @@ const Register = () => {
       email,
       password,
     };
-    console.log(payload);
     const request = await api.create("/auth/register", payload);
     if (request.success) {
       setLoading(false);
