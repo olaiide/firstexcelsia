@@ -13,7 +13,7 @@ import Button from "../../components/Button/Button";
 import Line1 from "../../assets/Line.svg";
 import Line2 from "../../assets/Line2.svg";
 import Line3 from "../../assets/Line3.svg";
-import Test from "../../assets/test.svg";
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -51,13 +51,11 @@ const Login = () => {
       localStorage.setItem('token', request.token);
       
     } else if (!request.success) {
-      console.log("invalid credentials ");
       setLoading(false);
       setError(true);
       setErrorMsg(request.Error);
       setTimeout(() => setError(false), 3000)
     } else {
-      console.log("network issue");
       setError(true);
       setErrorMsg("An error occured, please try again later");
     }
@@ -98,6 +96,7 @@ const Login = () => {
                     value={password}
                     onChange={handlePasswordChange}
                     required
+                    minLength='8'
                   />
                 </div>
                 <div className='button__container'>

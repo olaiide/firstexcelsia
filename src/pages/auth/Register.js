@@ -16,24 +16,15 @@ import Button from "../../components/Button/Button";
 import Line1 from "../../assets/Line.svg";
 import Line2 from "../../assets/Line2.svg";
 import Line3 from "../../assets/Line3.svg";
-import Test from "../../assets/test.svg";
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [disabled, setDisabled] = useState(true);
   const [error, setError] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
-
   let navigate = useNavigate();
 
-  useEffect(() => {
-    if (email.includes("@") && password.length >= 8) {
-      setDisabled(false);
-    } else {
-      setDisabled(true);
-    }
-  }, [email, password]);
+
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
@@ -58,7 +49,8 @@ const Register = () => {
     } else if (!request.success) {
       setLoading(false);
       setError(true);
-      setErrorMsg(request.Error);
+      setErrorMsg('User already exists. Please try another email.');
+      setTimeout(() => setError(false), 3000)
     } else {
       console.log("network issue");
       setError(true);
@@ -104,7 +96,7 @@ const Register = () => {
                     placeholder='Email'
                     value={email}
                     onChange={handleEmailChange}
-                    required={true}
+                    required
                   />
                 </div>
                 <div>
@@ -113,13 +105,13 @@ const Register = () => {
                     placeholder='Password'
                     value={password}
                     onChange={handlePasswordChange}
-                    required={true}
+                    required
+                    minLength='8'
                   />
                 </div>
                 <div className='button__container'>
                   <Button
                     loading={loading}
-                    disabled={disabled}
                     height={"65px"}
                     children={'Register'}
                   />

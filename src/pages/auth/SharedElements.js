@@ -32,7 +32,7 @@ export const LeftContent = styled.div`
     height: 300px;
     position: absolute;
     top: 310px;
-    right: 20px;
+    right: 0px;
   }
   .line3 {
     width: 200px;
