@@ -18,20 +18,11 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [disabled, setDisabled] = useState(true);
   const [error, setError] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
-  const [checkFields, setCheckFields] = useState(false);
   let navigate = useNavigate();
 
-  useEffect(() => {
-    if (email.includes("@") && password.length >= 8) {
-      setDisabled(false);
-    } else {
-      setDisabled(true);
-      //   setCheckFields(true)
-    }
-  }, [email, password]);
+ 
   useEffect (() => {
     localStorage.setItem('name', email)
   })
@@ -47,9 +38,6 @@ const Login = () => {
     setPassword(e.target.value);
   };
   const proceed_to_login = async (e) => {
-    if (!email.includes("@") && !password.length >= 8) {
-      setCheckFields(true);
-    }
     setLoading(true);
     e.preventDefault();
     const payload = {
@@ -96,7 +84,7 @@ const Login = () => {
               <div className='form__container'>
                 <div>
                   <input
-                    type='text'
+                    type='email'
                     placeholder='Email'
                     value={email}
                     onChange={handleEmailChange}
@@ -105,7 +93,7 @@ const Login = () => {
                 </div>
                 <div>
                   <input
-                    type='text'
+                    type='Password'
                     placeholder='Password'
                     value={password}
                     onChange={handlePasswordChange}
@@ -115,10 +103,8 @@ const Login = () => {
                 <div className='button__container'>
                   <Button
                     loading={loading}
-                    disabled={disabled}
                     height={"65px"}
                     children={'Login'}
-
                   />
                 </div>
               </div>

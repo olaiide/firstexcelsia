@@ -26,7 +26,6 @@ export const LeftContent = styled.div`
     position: absolute;
     top: 100px;
     right: 0px;
-    // right : 137px;
   }
   .line2 {
     width: 450px;
@@ -60,6 +59,10 @@ export const RightContent = styled.div`
     margin: 0 auto;
     height: 400px;
     border-radius: 7px;
+    @media screen and (max-width : 764px){
+      width : 90%;
+      height : 460px;
+    }
   }
   p{
     text-align : center;
@@ -72,7 +75,6 @@ export const RightContent = styled.div`
     border-radius: 10px;
     @media screen and (max-width: 1000px) {
       width: 90%;
-      height: 400px;
     }
     h2 {
       text-align: center;

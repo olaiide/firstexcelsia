@@ -54,6 +54,7 @@ const Register = () => {
     if (request.success) {
       setLoading(false);
       notify()
+      setTimeout(() => navigate('/login'), 3000)
     } else if (!request.success) {
       setLoading(false);
       setError(true);
@@ -72,7 +73,7 @@ const Register = () => {
   });
 
   const notify = () => {
-    toast.success('Registration successful, Please proceed to login', {
+    toast.success('Registration successful, Proceeding to login page', {
       transition: bounce
     });
   }
@@ -90,7 +91,7 @@ const Register = () => {
           </div>
         </LeftContent>
         <RightContent>
-          <ToastContainer transition={bounce}/>
+          <ToastContainer transition={bounce} autoClose={2000}/>
           <div className='form__wrapper'>
             <form onSubmit={proceed_to_registration}>
             <h2 style={{ marginTop: "4rem", textAlign: "center" }}>Register</h2>
@@ -99,20 +100,20 @@ const Register = () => {
               <div className='form__container'>
                 <div>
                   <input
-                    type='text'
+                    type='email'
                     placeholder='Email'
                     value={email}
                     onChange={handleEmailChange}
-                    required
+                    required={true}
                   />
                 </div>
                 <div>
                   <input
-                    type='text'
+                    type='Password'
                     placeholder='Password'
                     value={password}
                     onChange={handlePasswordChange}
-                    required
+                    required={true}
                   />
                 </div>
                 <div className='button__container'>
@@ -121,7 +122,6 @@ const Register = () => {
                     disabled={disabled}
                     height={"65px"}
                     children={'Register'}
-
                   />
                 </div>
               </div>
